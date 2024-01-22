@@ -31,31 +31,75 @@
 
         // Todo 2.1 Select the unordered list with the id "subjects-taken"
         // Resource: https://dev.to/alternate_robot/dom-selectors-in-javascript-344i
+        const ulElement = document.getElementById('subjects-taken');
+        console.log("id 'subjects-taken':", ulElement);
+
+
 
         // Checkpoint 2.1 What are the other ways to select elements in the DOM?
-        // Answer:
+        // ANSWER:
+        // There are several ways to select elements in the DOM, some of which includes:
+        // 1. .getElementById() - select an element by its ID
+        // 2. .getElementsByClassName() - selects an element by its class name
+        // 3. .getElementsByTagName() - selects an element by its tag name
+        // 4. .querySelector() - selects the first element that matches a specified CSS selector
+        // 5. .querySelectorAll() -  selects all elements that matches a specified CSS selector
+
+
 
         // Todo 2.2 Set the text of the second list item to "IT102 - Python Fundamentals"
         // Resource: https://www.javascripttutorial.net/javascript-dom/javascript-get-child-element/
+        const secondList = document.getElementsByTagName('li');
+        secondList[1].innerText = "IT102 - Python Fundamentals";
+
+
 
         // Checkpoint 3.2 What is the difference between innerText, textContent, and innerHTML. When should you use one over the other?
-        // Answer:
+        // ANSWER:
+        // innerText property focuses on the rendered text content. innerText reads the content of an element, it returns the text as it appears on screen. innerText ignores HTML tags. 
+        // textContent ignores all HTML tags and returns only the text. textContent returns all text, whether rendered or not. textContent reads text as it is in the markup.
+        // innerHTML reads both the HTML markup and the text content of the element.
+        // The innerHTML property interprets and renders content based on HTML tags, while innerText and textContent treat HTML tags as plain text. However, innerText reads content as 
+        // displayed on screen, ignoring hidden content and maintaining formatting. On the other hand, textContent reads content as it appears in the markup, including hidden content, but disregards formatting like whitespaces and line breaks when setting content.
+
+
 
         // Todo 2.3 Create another list item, and add it as a child of the unordered list
         //          Set the text of the list item to your favorite subject
         // Resource: https://www.javascripttutorial.net/dom/manipulating/create-a-dom-element/
+        const selectUL = document.querySelector('ul');
+        const addedList = document.createElement('li');
+        addedList.textContent = "IT114L Web Systems and Technologies (Laboratory)";
+        selectUL.appendChild(addedList);
 
         // Todo 2.4 Set the id attribute of the list item you created to "favorite-subject".
         //          Set the class of the list item to "newly-created"
+        addedList.setAttribute('id', 'favorite-subject');
+        addedList.setAttribute('class', 'newly-created');
+        console.log(addedList);
 
         // Todo 2.5 Delete the third list item in the unordered list
+        const targetItemDelete = document.querySelectorAll('li')[2];
+        targetItemDelete.remove();
+        
+
 
         // Checkpoint 2.3 What is the difference between node and element?
-        // Answer:
+        // ANSWER:
+        // A node is a generic term that represents a part of the document tree. 
+        // There are different types of nodes including Element Node, Attribute Node, Text Node, Comment Node, Document Node, and Document Fragment Node.
+        // The element is a specific type of node in the DOM as element inherits from Node. It represents an HTML or XML element tag. An element has specific properties and methods. 
+        // All elements are nodes, but not all nodes are elements. 
+        
+
 
         // Bonus Todo 2.6 Select the parent of the unordered list.
+        const parentOfUL = document.getElementById("subjects-taken").parentElement.nodeName;
+        console.log("Parent:", parentOfUL);
 
         // Bonus Todo 2.7 Select the previous sibling of the list item you previously created
+        const prevSibling = document.getElementById("favorite-subject").previousElementSibling;
+        console.log("Previous Sibling", prevSibling);
     </script>
 </body>
 
