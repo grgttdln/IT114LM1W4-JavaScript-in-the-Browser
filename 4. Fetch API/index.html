@@ -109,7 +109,11 @@
                 if (res.ok) {
                     console.log("Status:", res.status, "Data Deleted Successfully.")
                 }
+                else {
+                    console.log("Status: Error Deleting User.")
+                }
             })
+            .catch(error => console.log(error))
 
 
 
